@@ -19,8 +19,8 @@ public class Payrollinterface {
             while(true){
                 emp = new Employee();
                 //ask for name
-                System.out.println("Enter data for new Employee\n=============\n");
-                System.out.print(" >> Name or <enter> to quit");
+                System.out.println("Enter data for new Employee\n===========================\n");
+                System.out.print(" >> Name or <enter> to quit: ");
                 name = s.nextLine();
                 //try to set name if fail get out of program
                 if(emp.setName(name)==false) break;
@@ -54,3 +54,20 @@ public class Payrollinterface {
     
     
 }
+
+/*
+tries   name  type  rate    hours   total
+0       bill  1     6.74    -1      no total still looped at rate
+1       josh  1     6.75    -1      no total still looped at hours
+2       bill  3     6.75    0       no total still looped at type
+3       -2    1     6.75    1       6.75 (logic error)
+4       bill  1     30.51   -1      no total still looped at rate
+5       0     1     30.50   1       30.50 (logic error)
+6       bill  2     6.75    60      405.00
+7       bill  1000  -100    -1      no total still looped at type
+8       bill  2000  +100    0       no total still looped at type
+9       -2    1     -100    1       6.75 (logic error)
+10      bill  1     +100   -1       no total still looped at rate
+11      Jona  2     30.50   34      1037.00
+*/
+
