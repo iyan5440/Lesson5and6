@@ -84,6 +84,9 @@ public class Employee {
         else pay = hours* rate;
         return pay;
     }
+    public int getType(){
+        return type;
+    }
 }
 
 

@@ -1,14 +1,19 @@
 
 package Lesson5;
 
+import java.awt.Color;
+import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
+
 
 public class FACETESTERS extends javax.swing.JFrame {
 
      Face f;
+     int mood;
      
     public FACETESTERS() {
         initComponents();
-        f = new Face(JPanel.getGraphics(),100,100);
+        f = new Face(JPanel.getGraphics());
     }
 
     /**
@@ -21,10 +26,10 @@ public class FACETESTERS extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
+        btnmove = new javax.swing.JToggleButton();
+        btnresize = new javax.swing.JToggleButton();
+        btncolor = new javax.swing.JToggleButton();
+        btnmood = new javax.swing.JToggleButton();
         JPanel = new javax.swing.JPanel();
         btnset = new javax.swing.JToggleButton();
 
@@ -43,14 +48,35 @@ public class FACETESTERS extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jToggleButton1.setText("Move Face");
+        btnmove.setText("Move Face");
+        btnmove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmoveActionPerformed(evt);
+            }
+        });
 
-        jToggleButton2.setText("Resize Face");
+        btnresize.setText("Resize Face");
+        btnresize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnresizeActionPerformed(evt);
+            }
+        });
 
-        jToggleButton3.setText("Change Color");
+        btncolor.setText("Change Color");
+        btncolor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncolorActionPerformed(evt);
+            }
+        });
 
-        jToggleButton4.setText("Toggle Mood");
+        btnmood.setText("Toggle Mood");
+        btnmood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmoodActionPerformed(evt);
+            }
+        });
 
+        JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
@@ -80,13 +106,13 @@ public class FACETESTERS extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnmove, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                        .addComponent(jToggleButton3)
+                        .addComponent(btnresize, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(btncolor)
                         .addGap(18, 18, 18)
-                        .addComponent(jToggleButton4))
+                        .addComponent(btnmood))
                     .addComponent(btnset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -95,10 +121,10 @@ public class FACETESTERS extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3)
-                    .addComponent(jToggleButton4))
+                    .addComponent(btnmove)
+                    .addComponent(btnresize)
+                    .addComponent(btncolor)
+                    .addComponent(btnmood))
                 .addGap(18, 18, 18)
                 .addComponent(JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -110,8 +136,48 @@ public class FACETESTERS extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsetActionPerformed
-        // TODO add your handling code here:
+        btnmood.setEnabled(true);
+        btncolor.setEnabled(true);
+        btnmove.setEnabled(true);
+        btnresize.setEnabled(true);
+        f.erase();
+        f = new Face(JPanel.getGraphics());
+        f.draw(mood);
     }//GEN-LAST:event_btnsetActionPerformed
+
+    private void btnmoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoveActionPerformed
+        int nx = Integer.parseInt(JOptionPane.showInputDialog(this,"Enter New X: "));
+        int ny = Integer.parseInt(JOptionPane.showInputDialog(this,"Enter New Y: "));
+        f.erase();
+        f.move(nx,ny);
+        f.draw(mood);
+    }//GEN-LAST:event_btnmoveActionPerformed
+
+    private void btnresizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresizeActionPerformed
+        int nd = Integer.parseInt(JOptionPane.showInputDialog(this,"Enter New Diameter: "));
+        f.erase();
+        f.resize(nd);
+        f.draw(mood);
+        
+    }//GEN-LAST:event_btnresizeActionPerformed
+
+    private void btncolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncolorActionPerformed
+        Color newc = JColorChooser.showDialog(this, "Pick new Face Color", Color.red);
+        Color newe = JColorChooser.showDialog(this, "Pick new Eyes Color", Color.blue);
+        Color newm = JColorChooser.showDialog(this, "Pick new Eyes Color", Color.black);
+        f.erase();
+        f.setColor(newc,newe,newm);
+        f.draw(mood);
+    }//GEN-LAST:event_btncolorActionPerformed
+
+    private void btnmoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoodActionPerformed
+        mood +=1;
+        if(mood>=2)mood=0;
+        f.erase();
+        f.draw(mood);
+        System.out.println(mood);
+        
+    }//GEN-LAST:event_btnmoodActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,11 +216,11 @@ public class FACETESTERS extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel;
+    private javax.swing.JToggleButton btncolor;
+    private javax.swing.JToggleButton btnmood;
+    private javax.swing.JToggleButton btnmove;
+    private javax.swing.JToggleButton btnresize;
     private javax.swing.JToggleButton btnset;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,9 +20,12 @@ public class Employeetester {
         e2 = new Employee();
 
         e1.setName("JOEY FULLERTIME");
-        e1.setType(1);
+        System.out.println(e1.setType(1));
+        System.out.println(e1.setType(99));
+       //e1.setType(1);
         e1.setHours(45);
         e1.setRate(20);
+        System.out.println("JOEY IS " + e1.getType());
         
         e2.setName("JOEY PARTERTIME");
         e2.setType(2);
