@@ -51,7 +51,7 @@ public class Student {
     public void setName(String n){
         name = n;
     }
-    public String getName(){
+    public String getName(){ 
         return name;
     }
     public void setScore(int which, int score){
