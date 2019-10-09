@@ -2,7 +2,7 @@
 package Lesson6;
 
 
-public class GuessingGame {
+public class randomtest {
 
 
     public static void main(String[] args) {
