@@ -37,7 +37,6 @@ public class StudentInterface {
         while(true){
             //input first students data
             System.out.print("Enter name for second student: ");
-            s.nextLine();
             name = s.nextLine();
             stu1.setName(name);
             for (int i = 1; i <= 3; i++) {
