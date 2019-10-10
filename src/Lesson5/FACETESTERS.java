@@ -14,6 +14,10 @@ public class FACETESTERS extends javax.swing.JFrame {
     public FACETESTERS() {
         initComponents();
         f = new Face(JPanel.getGraphics());
+        btnmood.setEnabled(false);
+        btncolor.setEnabled(false);
+        btnmove.setEnabled(false);
+        btnresize.setEnabled(false);
     }
 
     /**
@@ -148,9 +152,11 @@ public class FACETESTERS extends javax.swing.JFrame {
     private void btnmoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoveActionPerformed
         int nx = Integer.parseInt(JOptionPane.showInputDialog(this,"Enter New X: "));
         int ny = Integer.parseInt(JOptionPane.showInputDialog(this,"Enter New Y: "));
-        f.erase();
-        f.move(nx,ny);
-        f.draw(mood);
+            f.erase();
+            f.move(nx,ny);
+            f.draw(mood);
+        
+        
     }//GEN-LAST:event_btnmoveActionPerformed
 
     private void btnresizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresizeActionPerformed
@@ -162,9 +168,9 @@ public class FACETESTERS extends javax.swing.JFrame {
     }//GEN-LAST:event_btnresizeActionPerformed
 
     private void btncolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncolorActionPerformed
-        Color newc = JColorChooser.showDialog(this, "Pick new Face Color", Color.red);
+        Color newc = JColorChooser.showDialog(this, "Pick new Face Color", Color.red); //331 x 284
         Color newe = JColorChooser.showDialog(this, "Pick new Eyes Color", Color.blue);
-        Color newm = JColorChooser.showDialog(this, "Pick new Eyes Color", Color.black);
+        Color newm = JColorChooser.showDialog(this, "Pick new Mouth Color", Color.black);
         f.erase();
         f.setColor(newc,newe,newm);
         f.draw(mood);

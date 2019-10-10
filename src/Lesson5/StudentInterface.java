@@ -33,9 +33,8 @@ public class StudentInterface {
             s.nextLine();
         }
         s.nextLine();
-        //input the scoend students data
+        //input the second students data
         while(true){
-            //input first students data
             System.out.print("Enter name for second student: ");
             name = s.nextLine();
             stu1.setName(name);
@@ -66,10 +65,7 @@ public class StudentInterface {
         else{
             System.out.println(stu.getHighScore());
         }
-        
-        
-        
-                
+ 
     }
     
 }

@@ -46,13 +46,10 @@ public class Face {
         g.setColor(c2);
         //first line
         g.drawLine(xPos+(int)(.15* diameter), yPos+(int)(.60* diameter), xPos+(int)(.20* diameter), yPos+(int)(.75* diameter));
-        //g.drawLine(xPos+15, yPos+60, xPos+20, yPos+75);
         //second line
         g.drawLine(xPos+(int)(.20* diameter), yPos+(int)(.75* diameter), xPos+(int)(.75* diameter), yPos+(int)(.75* diameter));
-        //g.drawLine(xPos+20, yPos+75, xPos+75, yPos+75); 
         //third line
         g.drawLine(xPos+(int)(.75* diameter), yPos+(int)(.75* diameter), xPos+(int)(.80* diameter), yPos+(int)(.60* diameter));
-        //g.drawLine(xPos+75, yPos+75, xPos+80, yPos+60);
         
     }
     private void drawMouthSad(){
