@@ -26,8 +26,8 @@ public class Dice {
         g = pg;
         c = Color.white;
         dc = Color.black;
-        this.size = size;
-        dotsize = (int) (.167*size);
+        this.size = width;
+        dotsize = (int)(.167*size);
         pos1 = (int)(.03*size);
         pos2 = (int)(.23*size);
         pos3 = (int)(.43*size);
@@ -53,7 +53,7 @@ public class Dice {
     public void draw(){
         if(g==null) return;
         g.setColor(c);
-        g.fillRoundRect(25,25,/*(int)(.67)*size*/100,100/*(int)(.67*size)*/,20,20); //25,25,100,100,20,20
+        g.fillRoundRect(0,0,/*(int)(.67)*size*/100,100/*(int)(.67*size)*/,20,20); //25,25,100,100,20,20
         
         //draw 7 dots
         g.setColor(dc);

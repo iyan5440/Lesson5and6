@@ -142,7 +142,7 @@ public class VisualDice extends javax.swing.JFrame {
         d1.setColor(newc,newdc);
         d2.setColor(newc,newdc);
 
-        //refresh dawing of dice
+        //refresh drawing of dice
         d1.draw();
         d2.draw();
 
